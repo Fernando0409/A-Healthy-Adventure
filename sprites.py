@@ -472,9 +472,15 @@ class Minion_Depression(pg.sprite.Sprite):
         self.animate()
         self.acc = vec(0,PLAYER_GRAV)
         keys = pg.key.get_pressed()
-
-        if self.pos.x < 0:
-            self.acc.x = -PLAYER_ACC
+        
+        if keys[pg.K_LEFT] or keys[pg.K_a]:
+            self.acc.x = -ENEMY_ACC
+        if keys[pg.K_RIGHT] or keys[pg.K_d]:
+            self.acc.x = -ENEMY_ACC
+        if keys[pg.K_SPACE] or keys[pg.K_UP] or keys[pg.K_w]:
+            self.acc.x = -ENEMY_ACC
+        #if self.pos.x < 0:
+         #   self.acc.x = -PLAYER_ACC
         #if self.pos.x > 0:
          #   self.acc.x = PLAYER_ACC
 
